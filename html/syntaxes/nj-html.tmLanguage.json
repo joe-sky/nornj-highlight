@@ -16,7 +16,7 @@
 		"keywords": {
 			"patterns": [{
 				"name": "support.type.vendored.property-name",
-				"match": "#if|#each"
+				"match": "#if|#each|#else|#elseif|#switch|#unless|#for|@\\w+|#list|#fn"
 			}]
 		},
 		"strings": {
