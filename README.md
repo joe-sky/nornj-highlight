@@ -1,5 +1,5 @@
-NornJ-highlight
-====
+# NornJ-highlight
+
 Syntax Highlight for NornJ template engine
 
 ## Install
