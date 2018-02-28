@@ -2,7 +2,7 @@
   "name": "nornj",
   "displayName": "nornj-highlight",
   "description": "Syntax Highlight for NornJ template engine",
-  "version": "0.4.2-rc.1",
+  "version": "0.1.2",
   "publisher": "joe-sky",
   "engines": {
     "vscode": "^0.10.1"
@@ -35,6 +35,6 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/yuhongda/nj-highlight.git"
+    "url": "https://github.com/joe-sky/nornj-highlight.git"
   }
 }

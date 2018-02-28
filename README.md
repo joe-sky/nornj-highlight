@@ -10,7 +10,7 @@ Search for `nornj` and click install
 
 ## Screenshots
 
-![nornj-template-example](./images/screenshot.png)
+![nornj-template-example](images/screenshot.png)
 
 ## License
 
