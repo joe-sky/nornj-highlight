@@ -1,0 +1,40 @@
+{
+  "name": "nornj",
+  "displayName": "nornj-highlight",
+  "description": "Syntax Highlight for NornJ template engine",
+  "version": "0.4.2-rc.1",
+  "publisher": "joe-sky",
+  "engines": {
+    "vscode": "^0.10.1"
+  },
+  "categories": [
+    "Languages"
+  ],
+  "contributes": {
+    "languages": [{
+      "id": "nornj",
+      "aliases": [
+        "NornJ",
+        "nj"
+      ],
+      "extensions": [
+        ".t.html",
+        ".t.htm",
+        ".nj.html",
+        ".nj.htm",
+        ".nj",
+        ".nornj"
+      ],
+      "configuration": "./nj.configuration.json"
+    }],
+    "grammars": [{
+      "language": "nornj",
+      "scopeName": "text.html.nj",
+      "path": "./syntaxes/nj.tmLanguage.json"
+    }]
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/yuhongda/nj-highlight.git"
+  }
+}
