@@ -12,6 +12,16 @@ Search for `nornj` and click install
 
 ![nornj-template-example](images/screenshot.png)
 
+## How to enable Emmet html snippets
+
+Add the following setting:
+
+```js
+"emmet.includeLanguages": {
+  "nornj": "html"
+}
+```
+
 ## License
 
 MIT

@@ -1,7 +1,11 @@
-# Change Log
-All notable changes to the "nornj-highlight" extension will be documented in this file.
+# CHANGELOG
 
-Check [Keep a Changelog](http://keepachangelog.com/) for recommendations on how to structure this file.
+## [v0.2.0] 2018.03.09
 
-## [Unreleased]
-- Initial release
+* 支持`html标签`智能提示。
+* 修复注释快捷键bug。
+
+## [v0.1.2] 2018.02.28
+
+* 支持`NornJ扩展标签`语法高亮。
+* 支持`NornJ插值变量`语法高亮。

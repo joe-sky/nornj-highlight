@@ -1,14 +1,15 @@
 {
   "name": "nornj",
   "displayName": "nornj-highlight",
-  "description": "Syntax Highlight for NornJ template engine",
-  "version": "0.1.2",
+  "description": "Syntax highlight and snippets for NornJ template engine",
+  "version": "0.2.0",
   "publisher": "joe-sky",
   "engines": {
     "vscode": "^0.10.1"
   },
   "categories": [
-    "Languages"
+    "Languages",
+    "Snippets"
   ],
   "contributes": {
     "languages": [{
@@ -31,6 +32,10 @@
       "language": "nornj",
       "scopeName": "text.html.nj",
       "path": "./syntaxes/nj.tmLanguage.json"
+    }],
+    "snippets": [{
+      "language": "nornj",
+      "path": "./snippets/nj.snippets.json"
     }]
   },
   "repository": {
