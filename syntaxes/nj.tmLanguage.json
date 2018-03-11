@@ -15,7 +15,7 @@
   "repository": {
     "openTag": {
       "patterns": [{
-        "match": "(</?)((#|@)([^\\s>]+))?",
+        "match": "(</?)((#|@{1,2})([^\\s>]+))?",
         "captures": {
           "1": {
             "name": "punctuation.definition.tag"

@@ -1,5 +1,9 @@
 # CHANGELOG
 
+## [v0.2.2] 2018.03.11
+
+* 🌟 增加`for`、`tmpl`、`include`等`NornJ扩展标签`智能提示。
+
 ## [v0.2.1] 2018.03.10
 
 * 🌟 增加`if`、`each`、`switch`等`NornJ扩展标签`智能提示。

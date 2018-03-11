@@ -907,6 +907,16 @@
     "description": "NornJ - Defines a default extension tag",
     "scope": "text.html.nj"
   },
+  "#unless": {
+    "prefix": "<#unless> ",
+    "body": [
+      "<#unless {{${1:condition}}}>",
+      "\t$2",
+      "</#unless>"
+    ],
+    "description": "NornJ - Defines a unless extension tag",
+    "scope": "text.html.nj"
+  },
   "#each": {
     "prefix": "<#each> ",
     "body": [
@@ -915,6 +925,16 @@
       "</#each>"
     ],
     "description": "NornJ - Defines a each extension tag",
+    "scope": "text.html.nj"
+  },
+  "#for": {
+    "prefix": "<#for>",
+    "body": [
+      "<#for {{${1:start}}} {{${2:end}}}>",
+      "\t$3",
+      "</#for>"
+    ],
+    "description": "NornJ - Defines a for extension tag",
     "scope": "text.html.nj"
   },
   "#empty": {
@@ -927,14 +947,92 @@
     "description": "NornJ - Defines a empty extension tag",
     "scope": "text.html.nj"
   },
-  "@prop": {
-    "prefix": "<@prop> ",
+  "#props": {
+    "prefix": "<#props>",
     "body": [
-      "<@${1:propName}>",
+      "<#props>",
+      "\t$1",
+      "</#props>"
+    ],
+    "description": "NornJ - Defines a props extension tag",
+    "scope": "text.html.nj"
+  },
+  "#prop": {
+    "prefix": "<#prop> ",
+    "body": [
+      "<#prop {{${1:name}}}>",
       "\t$2",
-      "</@${1:propName}>"
+      "</#prop>"
     ],
     "description": "NornJ - Defines a prop extension tag",
+    "scope": "text.html.nj"
+  },
+  "@propName": {
+    "prefix": "<@propName> ",
+    "body": [
+      "<@${1:propName}>",
+      "\t",
+      "</@${1:propName}>"
+    ],
+    "description": "NornJ - Defines a prop(syntax sugar) extension tag",
+    "scope": "text.html.nj"
+  },
+  "#strProp": {
+    "prefix": "<#strProp>",
+    "body": [
+      "<#strProp {{${1:name}}}>",
+      "\t$2",
+      "</#strProp>"
+    ],
+    "description": "NornJ - Defines a string prop extension tag",
+    "scope": "text.html.nj"
+  },
+  "@@propName": {
+    "prefix": "<@@propName> ",
+    "body": [
+      "<@@${1:propName}>",
+      "\t",
+      "</@@${1:propName}>"
+    ],
+    "description": "NornJ - Defines a string prop(syntax sugar) extension tag",
+    "scope": "text.html.nj"
+  },
+  "#obj": {
+    "prefix": "<#obj>",
+    "body": "<#obj key1=\"${1:value1}\" key2=\"${2:value2}\" />",
+    "description": "NornJ - Defines a object extension tag",
+    "scope": "text.html.nj"
+  },
+  "#list": {
+    "prefix": "<#list> ",
+    "body": "<#list {{${1:item1}}} {{${2:item2}}} />",
+    "description": "NornJ - Defines a array extension tag",
+    "scope": "text.html.nj"
+  },
+  "#fn": {
+    "prefix": "<#fn> ",
+    "body": [
+      "<#fn ${1:param1} ${2:param2}>",
+      "\t$3",
+      "</#fn>"
+    ],
+    "description": "NornJ - Defines a function extension tag",
+    "scope": "text.html.nj"
+  },
+  "#tmpl": {
+    "prefix": "<#tmpl> ",
+    "body": [
+      "<#tmpl name=\"${1:tmplName}\">",
+      "\t$2",
+      "</#tmpl>"
+    ],
+    "description": "NornJ - Defines a tmpl extension tag",
+    "scope": "text.html.nj"
+  },
+  "#include": {
+    "prefix": "<#include>",
+    "body": "<#include name=\"${1:templateName}\" src=\"${2:templatePath}\" />",
+    "description": "NornJ - Defines a include extension tag",
     "scope": "text.html.nj"
   }
 }
