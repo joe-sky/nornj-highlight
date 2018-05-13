@@ -2,8 +2,9 @@
   "name": "nornj",
   "displayName": "nornj-highlight",
   "description": "Syntax highlight and snippets for NornJ template engine",
-  "version": "0.2.2",
+  "version": "0.2.3",
   "publisher": "joe-sky",
+  "icon": "images/logo.png",
   "engines": {
     "vscode": "^0.10.1"
   },

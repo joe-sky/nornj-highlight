@@ -1,6 +1,6 @@
 # NornJ-highlight
 
-Syntax highlight and snippets for NornJ template engine
+Syntax highlight and snippets for [NornJ template engine](https://github.com/joe-sky/nornj)
 
 ## Install
 
