@@ -1,6 +1,6 @@
 # NornJ-highlight
 
-Syntax highlight and snippets for [NornJ template engine](https://github.com/joe-sky/nornj)
+Syntax highlight, snippets and file icon theme for [NornJ template engine](https://github.com/joe-sky/nornj)
 
 ## Install
 
@@ -8,7 +8,7 @@ Syntax highlight and snippets for [NornJ template engine](https://github.com/joe
 
 Search for `nornj` and click install
 
-## Syntax highlight screenshots
+## Syntax highlight and file icons screenshots
 
 ![nornj-template-example](images/screenshot.png)
 
@@ -54,6 +54,8 @@ Search for `nornj` and click install
 |`<#tmpl`|Defines a `<#tmpl>` tag|
 |`<#include`|Defines a `<#include>` tag|
 
+> The code snippets is a fork of [abusaidm/html-snippets](https://github.com/abusaidm/html-snippets).
+
 ## How to enable Emmet html snippets
 
 Add the following setting:
@@ -63,6 +65,12 @@ Add the following setting:
   "nornj": "html"
 }
 ```
+
+## How to use file icon theme
+
+After installation and activation, you should go in settings (`File` → `Preferences` on Windows, or `Code` → `Preferences` on OSX), choose `File Icon Theme`, and select `NornJ`.
+
+> The file icon theme is a fork of [EmmanuelBeziat/vscode-great-icons](https://github.com/EmmanuelBeziat/vscode-great-icons).
 
 ## License
 

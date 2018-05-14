@@ -2,7 +2,7 @@
   "name": "nornj",
   "displayName": "nornj-highlight",
   "description": "Syntax highlight and snippets for NornJ template engine",
-  "version": "0.2.3",
+  "version": "0.2.4",
   "publisher": "joe-sky",
   "icon": "images/logo.png",
   "engines": {
@@ -10,34 +10,48 @@
   },
   "categories": [
     "Languages",
-    "Snippets"
+    "Snippets",
+    "Themes"
   ],
   "contributes": {
-    "languages": [{
-      "id": "nornj",
-      "aliases": [
-        "NornJ",
-        "nj"
-      ],
-      "extensions": [
-        ".t.html",
-        ".t.htm",
-        ".nj.html",
-        ".nj.htm",
-        ".nj",
-        ".nornj"
-      ],
-      "configuration": "./nj.configuration.json"
-    }],
-    "grammars": [{
-      "language": "nornj",
-      "scopeName": "text.html.nj",
-      "path": "./syntaxes/nj.tmLanguage.json"
-    }],
-    "snippets": [{
-      "language": "nornj",
-      "path": "./snippets/nj.snippets.json"
-    }]
+    "languages": [
+      {
+        "id": "nornj",
+        "aliases": [
+          "NornJ",
+          "nj"
+        ],
+        "extensions": [
+          ".t.html",
+          ".t.htm",
+          ".nj.html",
+          ".nj.htm",
+          ".nj",
+          ".nornj"
+        ],
+        "configuration": "./nj.configuration.json"
+      }
+    ],
+    "grammars": [
+      {
+        "language": "nornj",
+        "scopeName": "text.html.nj",
+        "path": "./syntaxes/nj.tmLanguage.json"
+      }
+    ],
+    "snippets": [
+      {
+        "language": "nornj",
+        "path": "./snippets/nj.snippets.json"
+      }
+    ],
+    "iconThemes": [
+      {
+        "id": "nornj-icons",
+        "label": "NornJ",
+        "path": "./icons.json"
+      }
+    ]
   },
   "repository": {
     "type": "git",
