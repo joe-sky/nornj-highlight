@@ -1,6 +1,6 @@
 # NornJ-highlight
 
-Syntax highlight, snippets and file icon theme for [NornJ template engine](https://github.com/joe-sky/nornj)
+Syntax highlight, snippets and file icon theme for [NornJ template engine](https://github.com/joe-sky/nornj) in VS Code.
 
 ## Install
 
