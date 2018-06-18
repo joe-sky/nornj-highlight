@@ -40,7 +40,7 @@ function nextChar(s: string, i: number, regex = /\S/g) {
   return new Char(s, res.index);
 }
 
-function nextToken(s: string, i: number) {
+function nextToken(s: string, i: number, inSpecialElement: boolean) {
   let char = nextChar(s, i);
   if (!char)
     return;
@@ -69,8 +69,11 @@ const voidTags = [
   'track',
   'wbr',
   '!doctype',
-  '!--'
+  //'!--'
 ];
+
+const REGEX_COMMENT = /^!--/;
+const REGEX_COMMENT_END = /-->$/;
 
 function parseTokenValue(value: string) {
   const tagName = value.replace(/^<\/?|>$/g, '').toLowerCase();
@@ -80,9 +83,12 @@ function parseTokenValue(value: string) {
 
   const isStartTag = /<([^/]|$)/.test(value);
   const isEndTag = /<\//.test(value) || (
-    isStartTag && voidTags.indexOf(tagName) != -1
+    isStartTag && (voidTags.indexOf(tagName) != -1 || REGEX_COMMENT.test(tagName))
   );
-  const isSelfCloseTagEnd = /\/>$/.test(value);
+  const isSelfCloseTagEnd = /\/>$/.test(value) || REGEX_COMMENT_END.test(value);
+  //if(isStartTag && voidTags.indexOf(tagName) != -1) {
+  //console.log(value, isTagEnd);
+  //}
 
   return {
     isTagStart, isTagEnd, isStartTag, isEndTag, tagName, isSelfCloseTagEnd
@@ -120,13 +126,14 @@ function format(html: string, indent = '  ') {
   let inStartTag = false;
   let inEndTag = false;
   let inSpecialElement = false;
+  let isStartTagSpecial = false;
   let indentLevel = 0;
 
   let prevState: any = {};
   let token: Token | undefined;
   let i = 0;
 
-  while (token = nextToken(html, i)) {
+  while (token = nextToken(html, i, inSpecialElement)) {
     let tokenValue = token.value;
     let tokenWhitespaceValue = token.whitespace.value;
     let pendingWhitespace = '';
@@ -137,7 +144,7 @@ function format(html: string, indent = '  ') {
     // Remove space before tag name
     if (isTagStart && !tagName) {
       i = token.end;
-      token = nextToken(html, i);
+      token = nextToken(html, i, inSpecialElement);
       if (!token)
         break;
       tokenValue += token.value;
@@ -163,19 +170,25 @@ function format(html: string, indent = '  ') {
       inStartTag = true;
     if (isEndTag)
       inEndTag = true;
-    if (isEndTag && !isStartTag) // A void tag will be both
+    if (isEndTag && !isStartTag && !inSpecialElement) // A void tag will be both
       --indentLevel;
-    if (isTagStart && ['pre', 'script', 'style'].indexOf(tagName) != -1)
+    if ((isTagStart && (['pre', 'script', 'style'].indexOf(tagName) != -1 || REGEX_COMMENT.test(tagName)))
+      || (isTagEnd && REGEX_COMMENT_END.test(tokenValue))) {
+      //console.log(tokenValue);
       inSpecialElement = !inSpecialElement;
+      if (inSpecialElement) {
+        isStartTagSpecial = true;
+      }
+    }
 
     // Convenience
     const inTag = inStartTag || inEndTag;
 
     // Whitespace
     const whitespace = tokenWhitespaceValue || prevState.pendingWhitespace;
-    const ignoreSpace = inTag && (
+    const ignoreSpace = (inTag && (
       /^[=">]/.test(tokenValue) || /(^|=)"$/.test(prevState.tokenValue)
-    );
+    )) || i == 0;
     if (inSpecialElement && !inTag)
       output.push(tokenWhitespaceValue);
     else if (whitespace && !ignoreSpace) {
@@ -186,18 +199,25 @@ function format(html: string, indent = '  ') {
       //   (l, s) => l + s.length, 0
       // );
 
-      const indents = indent.repeat(
+      const indents = indentLevel > 0 ? indent.repeat(
         indentLevel + Number(inTag && !isTagStart)
-      );
+      ) : '';
 
       // if (lineLength + tokenValue.length > width)
       //   output.push('\n', indents);
       // else
-      if (numNewlines)
-        output.push(...Array(numNewlines).fill('\n'), indents);
-      else
-        output.push(' ');
+      if (inSpecialElement && !isStartTagSpecial) {
+        output.push(tokenWhitespaceValue);
+      }
+      else {
+        if (numNewlines)
+          output.push(...Array(numNewlines).fill('\n'), indents);
+        else
+          output.push(' ');
+      }
     }
+
+    isStartTagSpecial = false;
 
     output.push(tokenValue);
 
@@ -206,13 +226,14 @@ function format(html: string, indent = '  ') {
     };
 
     // Next state
-    if (inStartTag && isTagEnd && !inEndTag && !isSelfCloseTagEnd) // A void tag is both start & end
+    if (inStartTag && isTagEnd && !inEndTag && !isSelfCloseTagEnd && !(inSpecialElement && !isStartTagSpecial)) // A void tag is both start & end
       ++indentLevel;
     if (isTagEnd)
       inStartTag = inEndTag = false;
     i = token.end;
   }
 
+  //console.log(output);
   return output.join('').replace(REGEX_LT_GT_R, match => LT_GT_LOOKUP_R[match]);
 }
 

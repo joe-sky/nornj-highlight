@@ -9,7 +9,7 @@
     "sourceMap": true,
     "rootDir": "src",
     "strict": true,
-    "noUnusedLocals": true,
+    "noUnusedLocals": false,
     "noImplicitReturns": true,
     "noUnusedParameters": false
   },
