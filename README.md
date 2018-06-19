@@ -80,10 +80,10 @@ Code formatting has been supported, press `Shift + Ctrl + F`.
 
 ## Extension settings
 
-|setting|effect|
-|-------|-------|
-|`nornj.format.indentSize`|Set indent size|
-|`nornj.format.indentChar`|Set indent char|
+|setting|type|default|effect|
+|-------|----|-------|------|
+|`nornj.format.indentSize`|number|2|Set indent size|
+|`nornj.format.indentChar`|string|' '|Set indent char|
 
 ## License
 
