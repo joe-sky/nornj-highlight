@@ -21,8 +21,8 @@ class HTMLDocumentFormatter implements vscode.DocumentFormattingEditProvider {
     // const width =
     //   langConfig['editor.wordWrapColumn'] ||
     //   config.get('wordWrapColumn', 80);
-    const indentSize = config.get('indentSize') as number;
-    const indentChar = config.get('indentChar') as string;
+    const indentSize = config.get('format.indentSize') as number;
+    const indentChar = config.get('format.indentChar') as string;
     if (indentSize != null || indentChar != null) {
       indent = (indentChar || ' ').repeat((indentSize || 2));
     }

@@ -2,6 +2,8 @@
 
 Syntax highlight, snippets and file icon theme for [NornJ template engine](https://github.com/joe-sky/nornj) in VS Code.
 
+Github: https://github.com/joe-sky/nornj-highlight
+
 ## Install
 
 `ext install` in Visual Studio Code command line
@@ -71,6 +73,17 @@ Add the following setting:
 After installation and activation, you should go in settings (`File` → `Preferences` on Windows, or `Code` → `Preferences` on OSX), choose `File Icon Theme`, and select `NornJ`.
 
 > The file icon theme is a fork of [EmmanuelBeziat/vscode-great-icons](https://github.com/EmmanuelBeziat/vscode-great-icons).
+
+## Formatting
+
+Code formatting has been supported, press `Shift + Ctrl + F`.
+
+## Extension settings
+
+|setting|effect|
+|-------|-------|
+|`nornj.format.indentSize`|Set indent size|
+|`nornj.format.indentChar`|Set indent char|
 
 ## License
 

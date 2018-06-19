@@ -66,7 +66,20 @@
         "label": "NornJ",
         "path": "./icons.json"
       }
-    ]
+    ],
+    "configuration": {
+      "title": "nornj configuration",
+      "properties": {
+        "nornj.format.indentSize": {
+          "type": "number",
+          "description": "Set indent size"
+        },
+        "nornj.format.indentChar": {
+          "type": "string",
+          "description": "Set indent char"
+        }
+      }
+    }
   },
   "repository": {
     "type": "git",

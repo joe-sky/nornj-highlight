@@ -100,26 +100,38 @@ const LT_GT_LOOKUP: LookUp = {
   '>': '_njGt_',
   '=': '_njEq_'
 };
-const REGEX_LT_GT = />|<|=/g;
-const REGEX_MUSTACHE = /(([\s]+:[^\s=>]+=)(('[^']+')|("[^"]+")))|({{{?[\s\S]+?}}}?|{{?[\s\S]+?}}?)/g;
-const REGEX_LT_GT_R = /_nj(Lt|Gt|Eq)_/g;
 const LT_GT_LOOKUP_R: LookUp = {
   '_njLt_': '<',
   '_njGt_': '>',
   '_njEq_': '='
 };
 
+const REGEX_LT_GT = />|<|=/g;
+const REGEX_MUSTACHE = /(([\s]+:[^\s=>]+=)(('[^']+')|("[^"]+")))|({{{?[\s\S]+?}}}?|{{?[\s\S]+?}}?)/g;
+const REGEX_LT_GT_R = /_nj(Lt|Gt|Eq)_/g;
 const REGEX_LT_GT_S = /(<[\s]*(textarea|pre|script|style)[^>]*>)([\s\S]*?)(<\/\2>)/ig;
 const REGEX_LT_GT_C = /(<!--)([\s\S]*?)(-->)/g;
+const REGEX_QUOTE = /"[^"]*"|'[^']*'/g;
+const REGEX_QUOTE_D = /"[^"]*"/g;
+const REGEX_QUOTE_S = /'[^']*'/g;
+const REGEX_REPLACE_CHAR = /_njQs(\d+)_/g;
 
 function format(html: string, indent = '  '/*, width = 80*/) {
   const output = [];
+  const innerQuotes: string[] = [];
+
   html = html.replace(REGEX_MUSTACHE, (all, g1, g2, g3, g4, g5, g6) => {
     if (g1) {
-      return g2 + g3.replace(REGEX_LT_GT, (match: string) => LT_GT_LOOKUP[match])
+      return g2 + g3.replace(g4 ? REGEX_QUOTE_D : REGEX_QUOTE_S, (match: string) => {
+        innerQuotes.push(match);
+        return '_njQs' + (innerQuotes.length - 1) + '_';
+      }).replace(REGEX_LT_GT, (match: string) => LT_GT_LOOKUP[match])
     }
     else {
-      return g6.replace(REGEX_LT_GT, (match: string) => LT_GT_LOOKUP[match]);
+      return g6.replace(REGEX_QUOTE, (match: string) => {
+        innerQuotes.push(match);
+        return '_njQs' + (innerQuotes.length - 1) + '_';
+      }).replace(REGEX_LT_GT, (match: string) => LT_GT_LOOKUP[match]);
     }
   });
   html = html.replace(REGEX_LT_GT_S, (all, g1, g2, g3, g4) => {
@@ -178,8 +190,11 @@ function format(html: string, indent = '  '/*, width = 80*/) {
       inEndTag = true;
     if (isEndTag && !isStartTag && !inSpecialElement) // A void tag will be both
       --indentLevel;
-    if ((isTagStart && (['textarea', 'pre', 'script', 'style'].indexOf(tagName) != -1 || REGEX_COMMENT.test(tagName)))
-      || (isTagEnd && REGEX_COMMENT_END.test(tokenValue))) {
+
+    const isCommentStart = REGEX_COMMENT.test(tagName);
+    const isCommentEnd = REGEX_COMMENT_END.test(tokenValue);
+    if ((isTagStart && (['textarea', 'pre', 'script', 'style'].indexOf(tagName) != -1 || (isCommentStart && !isCommentEnd)))
+      || (isTagEnd && isCommentEnd && !isCommentStart)) {
       inSpecialElement = !inSpecialElement;
       if (inSpecialElement) {
         isStartTagSpecial = true;
@@ -238,7 +253,9 @@ function format(html: string, indent = '  '/*, width = 80*/) {
     i = token.end;
   }
 
-  return output.join('').replace(REGEX_LT_GT_R, match => LT_GT_LOOKUP_R[match]);
+  return output.join('')
+    .replace(REGEX_LT_GT_R, match => LT_GT_LOOKUP_R[match])
+    .replace(REGEX_REPLACE_CHAR, (all, g1) => innerQuotes[g1]);
 }
 
 export default format;
