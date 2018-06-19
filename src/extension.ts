@@ -33,7 +33,7 @@ class HTMLDocumentFormatter implements vscode.DocumentFormattingEditProvider {
       document.positionAt(text.length)
     );
     return Promise.resolve([
-      new vscode.TextEdit(range, format(text, indent))
+      new vscode.TextEdit(range, format(text, indent/*, width*/))
     ]);
   }
 }

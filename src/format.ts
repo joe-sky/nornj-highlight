@@ -40,7 +40,7 @@ function nextChar(s: string, i: number, regex = /\S/g) {
   return new Char(s, res.index);
 }
 
-function nextToken(s: string, i: number, inSpecialElement: boolean) {
+function nextToken(s: string, i: number) {
   let char = nextChar(s, i);
   if (!char)
     return;
@@ -86,9 +86,6 @@ function parseTokenValue(value: string) {
     isStartTag && (voidTags.indexOf(tagName) != -1 || REGEX_COMMENT.test(tagName))
   );
   const isSelfCloseTagEnd = /\/>$/.test(value) || REGEX_COMMENT_END.test(value);
-  //if(isStartTag && voidTags.indexOf(tagName) != -1) {
-  //console.log(value, isTagEnd);
-  //}
 
   return {
     isTagStart, isTagEnd, isStartTag, isEndTag, tagName, isSelfCloseTagEnd
@@ -112,7 +109,10 @@ const LT_GT_LOOKUP_R: LookUp = {
   '_njEq_': '='
 };
 
-function format(html: string, indent = '  ') {
+const REGEX_LT_GT_S = /(<[\s]*(textarea|pre|script|style)[^>]*>)([\s\S]*?)(<\/\2>)/ig;
+const REGEX_LT_GT_C = /(<!--)([\s\S]*?)(-->)/g;
+
+function format(html: string, indent = '  '/*, width = 80*/) {
   const output = [];
   html = html.replace(REGEX_MUSTACHE, (all, g1, g2, g3, g4, g5, g6) => {
     if (g1) {
@@ -121,6 +121,12 @@ function format(html: string, indent = '  ') {
     else {
       return g6.replace(REGEX_LT_GT, (match: string) => LT_GT_LOOKUP[match]);
     }
+  });
+  html = html.replace(REGEX_LT_GT_S, (all, g1, g2, g3, g4) => {
+    return g1 + g3.replace(REGEX_LT_GT, (match: string) => LT_GT_LOOKUP[match]) + g4;
+  });
+  html = html.replace(REGEX_LT_GT_C, (all, g1, g2, g3) => {
+    return g1 + g2.replace(REGEX_LT_GT, (match: string) => LT_GT_LOOKUP[match]) + g3;
   });
 
   let inStartTag = false;
@@ -133,7 +139,7 @@ function format(html: string, indent = '  ') {
   let token: Token | undefined;
   let i = 0;
 
-  while (token = nextToken(html, i, inSpecialElement)) {
+  while (token = nextToken(html, i)) {
     let tokenValue = token.value;
     let tokenWhitespaceValue = token.whitespace.value;
     let pendingWhitespace = '';
@@ -144,7 +150,7 @@ function format(html: string, indent = '  ') {
     // Remove space before tag name
     if (isTagStart && !tagName) {
       i = token.end;
-      token = nextToken(html, i, inSpecialElement);
+      token = nextToken(html, i);
       if (!token)
         break;
       tokenValue += token.value;
@@ -172,9 +178,8 @@ function format(html: string, indent = '  ') {
       inEndTag = true;
     if (isEndTag && !isStartTag && !inSpecialElement) // A void tag will be both
       --indentLevel;
-    if ((isTagStart && (['pre', 'script', 'style'].indexOf(tagName) != -1 || REGEX_COMMENT.test(tagName)))
+    if ((isTagStart && (['textarea', 'pre', 'script', 'style'].indexOf(tagName) != -1 || REGEX_COMMENT.test(tagName)))
       || (isTagEnd && REGEX_COMMENT_END.test(tokenValue))) {
-      //console.log(tokenValue);
       inSpecialElement = !inSpecialElement;
       if (inSpecialElement) {
         isStartTagSpecial = true;
@@ -233,7 +238,6 @@ function format(html: string, indent = '  ') {
     i = token.end;
   }
 
-  //console.log(output);
   return output.join('').replace(REGEX_LT_GT_R, match => LT_GT_LOOKUP_R[match]);
 }
 
