@@ -72,11 +72,15 @@
       "properties": {
         "nornj.format.indentSize": {
           "type": "number",
-          "description": "Set indent size"
+          "default": null,
+          "description": "Set indent size",
+          "scope": "resource"
         },
         "nornj.format.indentChar": {
           "type": "string",
-          "description": "Set indent char"
+          "default": null,
+          "description": "Set indent char",
+          "scope": "resource"
         }
       }
     }
