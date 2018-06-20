@@ -76,7 +76,7 @@ After installation and activation, you should go in settings (`File` → `Prefer
 
 ## Formatting
 
-Code formatting has been supported, press `Shift + Ctrl + F`.
+Code formatting has been supported, press `Shift + Alt + F`.
 
 ## Extension settings
 
