@@ -52,6 +52,21 @@
         "language": "nornj",
         "scopeName": "text.html.nj",
         "path": "./syntaxes/nj.tmLanguage.json"
+      },
+      {
+        "injectTo": [
+          "source.js",
+          "source.ts",
+          "source.jsx",
+          "source.js.jsx",
+          "source.tsx"
+        ],
+        "scopeName": "nj.css",
+        "path": "./syntaxes/nj.css.json",
+        "embeddedLanguages": {
+          "source.css.scss": "css",
+          "meta.embedded.line.ts": "typescript"
+        }
       }
     ],
     "snippets": [
