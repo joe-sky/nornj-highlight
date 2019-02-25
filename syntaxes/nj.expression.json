@@ -3,8 +3,9 @@
   "injectionSelector": "L:source -comment -string",
   "patterns": [
     {
-      "contentName": "source.css.scss",
-      "begin": "(\\b(?:\\w+\\.)*(s)\\s*)(`)",
+      "name": "string.js.taggedTemplate",
+      "contentName": "meta.embedded.block.html",
+      "begin": "(\\b(?:\\w+\\.)*(n)\\s*)(`)",
       "beginCaptures": {
         "2": {
           "name": "entity.name.function.tagged-template.js"
@@ -21,10 +22,13 @@
       },
       "patterns": [
         {
-          "include": "text.css.nj"
+          "include": "source.ts.nj#template-substitution-element"
+        },
+        {
+          "include": "source.ts.nj#expression"
         }
       ]
     }
   ],
-  "scopeName": "nj.css"
+  "scopeName": "nj.expression"
 }

@@ -431,7 +431,7 @@
       "iconPath": "./icons/certificate.png"
     },
     "_f_babel": {
-      "iconPath": "./icons/babel.png"
+      "iconPath": "./icons/babel.svg"
     },
     "_f_gitlab": {
       "iconPath": "./icons/gitlab.png"
@@ -977,6 +977,7 @@
     "yarn.lock": "_f_yarn",
     "yarn-error.log": "_f_yarn",
     ".babelrc": "_f_babel",
+    ".babelrc.js": "_f_babel",
     ".eslintrc.js": "_f_eslint",
     ".eslintrc.yml": "_f_eslint",
     ".eslintrc.yaml": "_f_eslint",

@@ -2,7 +2,7 @@
   "name": "nornj",
   "displayName": "nornj-highlight",
   "description": "Syntax highlight and snippets for NornJ template engine in VS Code",
-  "version": "0.3.1",
+  "version": "0.4.0",
   "publisher": "joe-sky",
   "icon": "images/logo.png",
   "engines": {
@@ -45,6 +45,18 @@
           ".nornj"
         ],
         "configuration": "./nj.configuration.json"
+      },
+      {
+        "id": "text.css.nj",
+        "aliases": [
+          "CSS (NornJ)"
+        ]
+      },
+      {
+        "id": "source.ts.nj",
+        "aliases": [
+          "TypeScript (NornJ)"
+        ]
       }
     ],
     "grammars": [
@@ -52,6 +64,30 @@
         "language": "nornj",
         "scopeName": "text.html.nj",
         "path": "./syntaxes/nj.tmLanguage.json"
+      },
+      {
+        "language": "source.ts.nj",
+        "scopeName": "source.ts.nj",
+        "path": "./syntaxes/nj.expression.tmLanguage.xml"
+      },
+      {
+        "language": "text.css.nj",
+        "scopeName": "text.css.nj",
+        "path": "./syntaxes/nj.css.tmLanguage.json"
+      },
+      {
+        "injectTo": [
+          "source.js",
+          "source.ts",
+          "source.jsx",
+          "source.js.jsx",
+          "source.tsx"
+        ],
+        "scopeName": "nj.expression",
+        "path": "./syntaxes/nj.expression.json",
+        "embeddedLanguages": {
+          "meta.template.expression.ts": "typescript"
+        }
       },
       {
         "injectTo": [
