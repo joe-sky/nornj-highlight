@@ -5,7 +5,7 @@
     {
       "name": "string.js.taggedTemplate",
       "contentName": "meta.embedded.block.html",
-      "begin": "(\\b(?:\\w+\\.)*(n)\\s*)(`)",
+      "begin": "(\\b(?:\\w+\\.)*(nj|njs|t)\\s*)(`)",
       "beginCaptures": {
         "2": {
           "name": "entity.name.function.tagged-template.js"
@@ -25,10 +25,10 @@
           "include": "source.ts.nj#template-substitution-element"
         },
         {
-          "include": "source.ts.nj#expression"
+          "include": "text.nj"
         }
       ]
     }
   ],
-  "scopeName": "nj.expression"
+  "scopeName": "nj.taggedTemplate"
 }

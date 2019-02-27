@@ -1,5 +1,17 @@
 # CHANGELOG
 
+## [v0.4.1] 2019.02.27
+
+* 🌟 支持新语法高亮：
+
+```js
+nj`<html>{'Hello' + 'world'}</html>`
+njs`<html>{'Hello' + 'world'}</html>`
+t`<html>{'Hello' + 'world'}</html>`
+```
+
+* 🌟 模板内表达式支持语法高亮。
+
 ## [v0.4.0] 2019.02.25
 
 * 🌟 支持新语法高亮：

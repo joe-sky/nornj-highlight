@@ -319,10 +319,7 @@
             <key>include</key>
             <string>#cast</string>
           </dict>
-          <dict>
-            <key>include</key>
-            <string>#ternary-expression</string>
-          </dict>
+          <!-- <dict><key>include</key><string>#ternary-expression</string></dict> -->
           <dict>
             <key>include</key>
             <string>#new-expr</string>
@@ -5266,6 +5263,12 @@
               </dict>
             </dict>
           </dict>
+          <dict>
+            <key>name</key>
+            <string>keyword.operator.logical.ts</string>
+            <key>match</key>
+            <string>\?|:</string>
+          </dict>
         </array>
       </dict>
       <key>typeof-operator</key>
@@ -7489,75 +7492,7 @@
         <key>match</key>
         <string>\\(x[0-9A-Fa-f]{2}|[0-2][0-7]{0,2}|3[0-6][0-7]?|37[0-7]?|[4-7][0-7]?|.|$)</string>
       </dict>
-      <!-- <key>template</key>
-      <dict>
-        <key>patterns</key>
-        <array>
-          <dict>
-            <key>name</key>
-            <string>string.template.ts</string>
-            <key>begin</key>
-            <string>([_$[:alpha:]][_$[:alnum:]]*)\s*(?=(&lt;\s*(((keyof|infer|typeof)\s+)|(([_$[:alpha:]][_$[:alnum:]]*|(\{([^\{\}]|(\{[^\{\}]*\}))*\})|(\(([^\(\)]|(\([^\(\)]*\)))*\))|(\[([^\[\]]|(\[[^\[\]]*\]))*\])|(\'[^\']*\')|(\"[^\"]*\")|(\`[^\`]*\`))(?=\s*([\&lt;\&gt;\,\.\[]|=&gt;|&amp;(?!&amp;)|\|(?!\|)))))([^&lt;&gt;\(]|(\(([^\(\)]|(\([^\(\)]*\)))*\))|(?&lt;==)\&gt;|\&lt;\s*(((keyof|infer|typeof)\s+)|(([_$[:alpha:]][_$[:alnum:]]*|(\{([^\{\}]|(\{[^\{\}]*\}))*\})|(\(([^\(\)]|(\([^\(\)]*\)))*\))|(\[([^\[\]]|(\[[^\[\]]*\]))*\])|(\'[^\']*\')|(\"[^\"]*\")|(\`[^\`]*\`))(?=\s*([\&lt;\&gt;\,\.\[]|=&gt;|&amp;(?!&amp;)|\|(?!\|)))))(([^&lt;&gt;\(]|(\(([^\(\)]|(\([^\(\)]*\)))*\))|(?&lt;==)\&gt;|\&lt;\s*(((keyof|infer|typeof)\s+)|(([_$[:alpha:]][_$[:alnum:]]*|(\{([^\{\}]|(\{[^\{\}]*\}))*\})|(\(([^\(\)]|(\([^\(\)]*\)))*\))|(\[([^\[\]]|(\[[^\[\]]*\]))*\])|(\'[^\']*\')|(\"[^\"]*\")|(\`[^\`]*\`))(?=\s*([\&lt;\&gt;\,\.\[]|=&gt;|&amp;(?!&amp;)|\|(?!\|)))))([^&lt;&gt;\(]|(\(([^\(\)]|(\([^\(\)]*\)))*\))|(?&lt;==)\&gt;)*(?&lt;!=)\&gt;))*(?&lt;!=)\&gt;)*(?&lt;!=)&gt;\s*)`)</string>
-            <key>beginCaptures</key>
-            <dict>
-              <key>1</key>
-              <dict>
-                <key>name</key>
-                <string>entity.name.function.tagged-template.ts</string>
-              </dict>
-            </dict>
-            <key>end</key>
-            <string>(?=`)</string>
-            <key>patterns</key>
-            <array>
-              <dict>
-                <key>include</key>
-                <string>#type-arguments</string>
-              </dict>
-            </array>
-          </dict>
-          <dict>
-            <key>name</key>
-            <string>string.template.ts</string>
-            <key>begin</key>
-            <string>([_$[:alpha:]][_$[:alnum:]]*)?(`)</string>
-            <key>beginCaptures</key>
-            <dict>
-              <key>1</key>
-              <dict>
-                <key>name</key>
-                <string>entity.name.function.tagged-template.ts</string>
-              </dict>
-              <key>2</key>
-              <dict>
-                <key>name</key>
-                <string>punctuation.definition.string.template.begin.ts</string>
-              </dict>
-            </dict>
-            <key>end</key>
-            <string>`</string>
-            <key>endCaptures</key>
-            <dict>
-              <key>0</key>
-              <dict>
-                <key>name</key>
-                <string>punctuation.definition.string.template.end.ts</string>
-              </dict>
-            </dict>
-            <key>patterns</key>
-            <array>
-              <dict>
-                <key>include</key>
-                <string>#template-substitution-element</string>
-              </dict>
-              <dict>
-                <key>include</key>
-                <string>#string-character-escape</string>
-              </dict>
-            </array>
-          </dict>
-        </array>
-      </dict> -->
+      <!-- <key>template</key><dict><key>patterns</key><array><dict><key>name</key><string>string.template.ts</string><key>begin</key><string>([_$[:alpha:]][_$[:alnum:]]*)\s*(?=(&lt;\s*(((keyof|infer|typeof)\s+)|(([_$[:alpha:]][_$[:alnum:]]*|(\{([^\{\}]|(\{[^\{\}]*\}))*\})|(\(([^\(\)]|(\([^\(\)]*\)))*\))|(\[([^\[\]]|(\[[^\[\]]*\]))*\])|(\'[^\']*\')|(\"[^\"]*\")|(\`[^\`]*\`))(?=\s*([\&lt;\&gt;\,\.\[]|=&gt;|&amp;(?!&amp;)|\|(?!\|)))))([^&lt;&gt;\(]|(\(([^\(\)]|(\([^\(\)]*\)))*\))|(?&lt;==)\&gt;|\&lt;\s*(((keyof|infer|typeof)\s+)|(([_$[:alpha:]][_$[:alnum:]]*|(\{([^\{\}]|(\{[^\{\}]*\}))*\})|(\(([^\(\)]|(\([^\(\)]*\)))*\))|(\[([^\[\]]|(\[[^\[\]]*\]))*\])|(\'[^\']*\')|(\"[^\"]*\")|(\`[^\`]*\`))(?=\s*([\&lt;\&gt;\,\.\[]|=&gt;|&amp;(?!&amp;)|\|(?!\|)))))(([^&lt;&gt;\(]|(\(([^\(\)]|(\([^\(\)]*\)))*\))|(?&lt;==)\&gt;|\&lt;\s*(((keyof|infer|typeof)\s+)|(([_$[:alpha:]][_$[:alnum:]]*|(\{([^\{\}]|(\{[^\{\}]*\}))*\})|(\(([^\(\)]|(\([^\(\)]*\)))*\))|(\[([^\[\]]|(\[[^\[\]]*\]))*\])|(\'[^\']*\')|(\"[^\"]*\")|(\`[^\`]*\`))(?=\s*([\&lt;\&gt;\,\.\[]|=&gt;|&amp;(?!&amp;)|\|(?!\|)))))([^&lt;&gt;\(]|(\(([^\(\)]|(\([^\(\)]*\)))*\))|(?&lt;==)\&gt;)*(?&lt;!=)\&gt;))*(?&lt;!=)\&gt;)*(?&lt;!=)&gt;\s*)`)</string><key>beginCaptures</key><dict><key>1</key><dict><key>name</key><string>entity.name.function.tagged-template.ts</string></dict></dict><key>end</key><string>(?=`)</string><key>patterns</key><array><dict><key>include</key><string>#type-arguments</string></dict></array></dict><dict><key>name</key><string>string.template.ts</string><key>begin</key><string>([_$[:alpha:]][_$[:alnum:]]*)?(`)</string><key>beginCaptures</key><dict><key>1</key><dict><key>name</key><string>entity.name.function.tagged-template.ts</string></dict><key>2</key><dict><key>name</key><string>punctuation.definition.string.template.begin.ts</string></dict></dict><key>end</key><string>`</string><key>endCaptures</key><dict><key>0</key><dict><key>name</key><string>punctuation.definition.string.template.end.ts</string></dict></dict><key>patterns</key><array><dict><key>include</key><string>#template-substitution-element</string></dict><dict><key>include</key><string>#string-character-escape</string></dict></array></dict></array></dict> -->
       <key>template-substitution-element</key>
       <dict>
         <key>name</key>
