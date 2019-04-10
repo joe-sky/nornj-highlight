@@ -6,7 +6,7 @@
   "publisher": "joe-sky",
   "icon": "images/logo.png",
   "engines": {
-    "vscode": "^1.15.0"
+    "vscode": "^1.29.0"
   },
   "categories": [
     "Programming Languages",
@@ -15,7 +15,11 @@
     "Formatters"
   ],
   "activationEvents": [
-    "onLanguage:nornj"
+    "onLanguage:nornj",
+    "onLanguage:javascript",
+    "onLanguage:javascriptreact",
+    "onLanguage:typescript",
+    "onLanguage:typescriptreact"
   ],
   "main": "./out/extension",
   "capabilities": {
@@ -160,9 +164,41 @@
           "default": null,
           "description": "Set indent char",
           "scope": "resource"
+        },
+        "nornj.tags": {
+          "type": "array",
+          "description": "List of template tags to enable html intellisense in.",
+          "items": {
+            "type": "string",
+            "description": "Tag name."
+          },
+          "default": [
+            "nj"
+          ]
+        },
+        "nornj.format.enabled": {
+          "type": "boolean",
+          "description": "Enable/disable formatting of html template strings.",
+          "default": true
         }
       }
-    }
+    },
+    "typescriptServerPlugins": [
+      {
+        "name": "typescript-nornj-plugin",
+        "enableForWorkspaceTypeScriptVersions": true
+      }
+    ],
+    "jsonValidation": [
+      {
+        "fileMatch": "jsconfig*.json",
+        "url": "./schemas/tsconfig.schema.json"
+      },
+      {
+        "fileMatch": "tsconfig*.json",
+        "url": "./schemas/tsconfig.schema.json"
+      }
+    ]
   },
   "repository": {
     "type": "git",
@@ -173,9 +209,12 @@
     "NornJ",
     "nj"
   ],
+  "dependencies": {
+    "typescript-nornj-plugin": "0.1.0"
+  },
   "devDependencies": {
-    "typescript": "^2.6.1",
-    "vscode": "^1.1.6",
+    "typescript": "^3.1.6",
+    "vscode": "^1.1.22",
     "tslint": "^5.8.0",
     "@types/node": "^7.0.43",
     "@types/mocha": "^2.2.42"
