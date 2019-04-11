@@ -1,5 +1,15 @@
 # CHANGELOG
 
+## [v0.5.0] 2019.04.11
+
+* 🌟 The following syntax supported formatting and intelliSense:
+
+```js
+nj`<html>{'Hello' + 'world'}</html>`
+njs`<html>{'Hello' + 'world'}</html>`
+t`<html>{'Hello' + 'world'}</html>`
+```
+
 ## [v0.4.1] 2019.02.27
 
 * 🌟 支持新语法高亮：

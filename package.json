@@ -2,7 +2,7 @@
   "name": "nornj",
   "displayName": "nornj-highlight",
   "description": "Syntax highlight and snippets for NornJ template engine in VS Code",
-  "version": "0.4.2",
+  "version": "0.5.0",
   "publisher": "joe-sky",
   "icon": "images/logo.png",
   "engines": {
@@ -165,20 +165,22 @@
           "description": "Set indent char",
           "scope": "resource"
         },
-        "nornj.tags": {
+        "nornj.taggedTemplate.tags": {
           "type": "array",
-          "description": "List of template tags to enable html intellisense in.",
+          "description": "List of template tags to enable nornj intellisense in.",
           "items": {
             "type": "string",
             "description": "Tag name."
           },
           "default": [
-            "nj"
+            "nj",
+            "njs",
+            "t"
           ]
         },
-        "nornj.format.enabled": {
+        "nornj.taggedTemplate.format.enabled": {
           "type": "boolean",
-          "description": "Enable/disable formatting of html template strings.",
+          "description": "Enable/disable formatting of nornj template strings.",
           "default": true
         }
       }
@@ -210,7 +212,7 @@
     "nj"
   ],
   "dependencies": {
-    "typescript-nornj-plugin": "0.1.0"
+    "typescript-nornj-plugin": "^0.2.0"
   },
   "devDependencies": {
     "typescript": "^3.1.6",

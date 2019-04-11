@@ -11,16 +11,7 @@
     "strict": true,
     "noUnusedLocals": false,
     "noImplicitReturns": true,
-    "noUnusedParameters": false,
-    "plugins": [
-      {
-      "name": "typescript-nornj-plugin",
-      "tags": [
-          "nj"
-        ],
-        "format": { "enabled": true }
-      }
-    ]
+    "noUnusedParameters": false
   },
   "exclude": [
     "node_modules",
