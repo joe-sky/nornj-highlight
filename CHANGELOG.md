@@ -1,6 +1,6 @@
 # CHANGELOG
 
-## [v0.5.0] 2019.04.11
+## [v0.5.0] 2019.04.12
 
 * 🌟 The following syntax supported formatting and intelliSense:
 

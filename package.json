@@ -212,7 +212,7 @@
     "nj"
   ],
   "dependencies": {
-    "typescript-nornj-plugin": "^0.2.0"
+    "typescript-nornj-plugin": "^0.2.4"
   },
   "devDependencies": {
     "typescript": "^3.1.6",
