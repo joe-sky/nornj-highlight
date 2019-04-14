@@ -84,7 +84,7 @@ Code formatting has been supported, press `Shift + Alt + F`.
 |-------|----|-------|------|
 |`nornj.format.indentSize`|number|2|Set indent size|
 |`nornj.format.indentChar`|string|' '|Set indent char|
-|`nornj.taggedTemplate.tags`|array|["nj", "njs", "t"]|Tagged templates tag names|
+|`nornj.taggedTemplate.tags`|array|["html", "nj", "njs", "t"]|Tagged templates tag names|
 |`nornj.taggedTemplate.format.enabled`|boolean|true|Enable/disable formatting of nornj template strings|
 
 ## License

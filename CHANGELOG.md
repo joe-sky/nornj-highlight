@@ -1,5 +1,9 @@
 # CHANGELOG
 
+## [v0.5.1] 2019.04.14
+
+* 🌟 The default tagged template tags add `html`.
+
 ## [v0.5.0] 2019.04.12
 
 * 🌟 The following syntax supported formatting and intelliSense:

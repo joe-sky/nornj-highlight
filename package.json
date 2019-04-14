@@ -2,7 +2,7 @@
   "name": "nornj",
   "displayName": "nornj-highlight",
   "description": "Syntax highlight and snippets for NornJ template engine in VS Code",
-  "version": "0.5.0",
+  "version": "0.5.1",
   "publisher": "joe-sky",
   "icon": "images/logo.png",
   "engines": {
@@ -173,6 +173,7 @@
             "description": "Tag name."
           },
           "default": [
+            "html",
             "nj",
             "njs",
             "t"
@@ -212,7 +213,7 @@
     "nj"
   ],
   "dependencies": {
-    "typescript-nornj-plugin": "^0.2.4"
+    "typescript-nornj-plugin": "^0.2.5"
   },
   "devDependencies": {
     "typescript": "^3.1.6",
