@@ -2,7 +2,7 @@
   "name": "nornj",
   "displayName": "nornj-highlight",
   "description": "Syntax highlight and snippets for NornJ template engine in VS Code",
-  "version": "0.5.1",
+  "version": "0.6.1",
   "publisher": "joe-sky",
   "icon": "images/logo.png",
   "engines": {
@@ -15,7 +15,7 @@
     "Formatters"
   ],
   "activationEvents": [
-    "onLanguage:nornj",
+    "onLanguage:nornj-html",
     "onLanguage:javascript",
     "onLanguage:javascriptreact",
     "onLanguage:typescript",
@@ -35,16 +35,24 @@
   "contributes": {
     "languages": [
       {
-        "id": "nornj",
+        "id": "nornj-html",
         "aliases": [
-          "NornJ",
-          "nj"
+          "NornJ HTML"
         ],
         "extensions": [
           ".t.html",
           ".t.htm",
           ".nj.html",
-          ".nj.htm",
+          ".nj.htm"
+        ],
+        "configuration": "./nj.html.configuration.json"
+      },
+      {
+        "id": "nornj",
+        "aliases": [
+          "NornJ"
+        ],
+        "extensions": [
           ".nj",
           ".nornj"
         ],
@@ -71,9 +79,14 @@
     ],
     "grammars": [
       {
+        "language": "nornj-html",
+        "scopeName": "text.nj.html",
+        "path": "./syntaxes/nj.html.json"
+      },
+      {
         "language": "nornj",
         "scopeName": "text.nj",
-        "path": "./syntaxes/nj.tmLanguage.json"
+        "path": "./syntaxes/nj.json"
       },
       {
         "language": "text.html.nj",
@@ -138,6 +151,10 @@
       }
     ],
     "snippets": [
+      {
+        "language": "nornj-html",
+        "path": "./snippets/nj.html.snippets.json"
+      },
       {
         "language": "nornj",
         "path": "./snippets/nj.snippets.json"

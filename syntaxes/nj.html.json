@@ -1,0 +1,96 @@
+{
+  "$schema": "https://raw.githubusercontent.com/martinring/tmlanguage/master/tmlanguage.json",
+  "name": "nornj-html",
+  "patterns": [
+    {
+      "include": "text.html.nj"
+    },
+    {
+      "include": "#openTag"
+    },
+    {
+      "include": "#closeTag"
+    },
+    {
+      "include": "#doubleBrace"
+    },
+    {
+      "include": "#brace"
+    }
+  ],
+  "repository": {
+    "openTag": {
+      "patterns": [
+        {
+          "match": "(</?)((#|@{1,2})([^\\s>]+))?",
+          "captures": {
+            "1": {
+              "name": "punctuation.definition.tag"
+            },
+            "3": {
+              "name": "string.regexp"
+            },
+            "4": {
+              "name": "support.type.vendored.property-name"
+            }
+          }
+        }
+      ]
+    },
+    "closeTag": {
+      "patterns": [
+        {
+          "name": "punctuation.definition.tag",
+          "match": "/?>"
+        }
+      ]
+    },
+    "doubleBrace": {
+      "begin": "{{{?",
+      "beginCaptures": [
+        {
+          "name": "support.type.vendored.property-name"
+        }
+      ],
+      "end": "}}}?",
+      "endCaptures": [
+        {
+          "name": "support.type.vendored.property-name"
+        }
+      ],
+      "name": "string.value",
+      "patterns": [
+        {
+          "include": "source.ts.nj#template-substitution-element"
+        },
+        {
+          "include": "source.ts.nj#expression"
+        }
+      ]
+    },
+    "brace": {
+      "begin": "{{?",
+      "beginCaptures": [
+        {
+          "name": "support.type.vendored.property-name"
+        }
+      ],
+      "end": "}}?",
+      "endCaptures": [
+        {
+          "name": "support.type.vendored.property-name"
+        }
+      ],
+      "name": "string.value",
+      "patterns": [
+        {
+          "include": "source.ts.nj#template-substitution-element"
+        },
+        {
+          "include": "source.ts.nj#expression"
+        }
+      ]
+    }
+  },
+  "scopeName": "text.nj.html"
+}

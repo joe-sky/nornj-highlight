@@ -3,9 +3,6 @@
   "name": "nornj",
   "patterns": [
     {
-      "include": "text.html.nj"
-    },
-    {
       "include": "#openTag"
     },
     {
@@ -46,16 +43,22 @@
       ]
     },
     "doubleBrace": {
-      "begin": "{{{?",
+      "begin": "({{)(%)",
       "beginCaptures": [
         {
-          "name": "support.type.vendored.property-name"
+          "name": "string.regexp"
+        },
+        {
+          "name": "punctuation.definition.tag"
         }
       ],
-      "end": "}}}?",
+      "end": "(%)(}})",
       "endCaptures": [
         {
-          "name": "support.type.vendored.property-name"
+          "name": "punctuation.definition.tag"
+        },
+        {
+          "name": "string.regexp"
         }
       ],
       "name": "string.value",
@@ -69,16 +72,22 @@
       ]
     },
     "brace": {
-      "begin": "{{?",
+      "begin": "({)(%)",
       "beginCaptures": [
         {
-          "name": "support.type.vendored.property-name"
+          "name": "string.regexp"
+        },
+        {
+          "name": "punctuation.definition.tag"
         }
       ],
-      "end": "}}?",
+      "end": "(%)(})",
       "endCaptures": [
         {
-          "name": "support.type.vendored.property-name"
+          "name": "punctuation.definition.tag"
+        },
+        {
+          "name": "string.regexp"
         }
       ],
       "name": "string.value",

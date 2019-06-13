@@ -35,26 +35,21 @@ Search for `nornj` and click install
 
 |trigger|snippet|
 |-------|-------|
-|`<#if`|Defines a `<#if>` tag|
-|`<#else`|Defines a `<#else>` tag|
-|`<#elseif`|Defines a `<#elseif>` tag|
-|`<#switch`|Defines a `<#switch>` tag|
-|`<#case`|Defines a `<#case>` tag|
-|`<#default`|Defines a `<#default>` tag|
-|`<#unless`|Defines a `<#unless>` tag|
-|`<#each`|Defines a `<#each>` tag|
-|`<#for`|Defines a `<#for>` tag|
-|`<#empty`|Defines a `<#empty>` tag|
-|`<#props`|Defines a `<#props>` tag|
-|`<#prop`|Defines a `<#prop>` tag|
-|`<@propName`|Defines a `<@propName>` tag|
-|`<#strProp`|Defines a `<#strProp>` tag|
-|`<@@propName`|Defines a `<@@propName>` tag|
-|`<#obj`|Defines a `<#obj>` tag|
-|`<#list`|Defines a `<#list>` tag|
-|`<#fn`|Defines a `<#fn>` tag|
-|`<#tmpl`|Defines a `<#tmpl>` tag|
-|`<#include`|Defines a `<#include>` tag|
+|`<n-if`|Defines a `<n-if>` tag|
+|`<n-else`|Defines a `<n-else>` tag|
+|`<n-elseif`|Defines a `<n-elseif>` tag|
+|`<n-switch`|Defines a `<n-switch>` tag|
+|`<n-case`|Defines a `<n-case>` tag|
+|`<n-default`|Defines a `<n-default>` tag|
+|`<n-each`|Defines a `<n-each>` tag|
+|`<n-for`|Defines a `<n-for>` tag|
+|`<n-empty`|Defines a `<n-empty>` tag|
+|`<n-prop`|Defines a `<n-prop>` tag|
+|`<p-propName`|Defines a `<p-propName>` tag|
+|`<n-strProp`|Defines a `<n-strProp>` tag|
+|`<sp-propName`|Defines a `<sp-propName>` tag|
+|`<n-obj`|Defines a `<n-obj>` tag|
+|`<n-include`|Defines a `<n-include>` tag|
 
 > The code snippets is a fork of [abusaidm/html-snippets](https://github.com/abusaidm/html-snippets).
 
@@ -64,7 +59,7 @@ Add the following setting:
 
 ```js
 "emmet.includeLanguages": {
-  "nornj": "html"
+  "nornj-html": "html"
 }
 ```
 

@@ -45,7 +45,7 @@ class HTMLDocumentFormatter implements vscode.DocumentFormattingEditProvider {
 
 export async function activate(context: vscode.ExtensionContext) {
   const formatter = new HTMLDocumentFormatter();
-  context.subscriptions.push(vscode.languages.registerDocumentFormattingEditProvider('nornj', formatter));
+  context.subscriptions.push(vscode.languages.registerDocumentFormattingEditProvider('nornj-html', formatter));
 
   const extension = vscode.extensions.getExtension(typeScriptExtensionId);
   if (!extension) {

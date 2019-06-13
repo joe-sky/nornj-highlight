@@ -1,5 +1,9 @@
 # CHANGELOG
 
+## [v0.6.1] 2019.06.13
+
+* 🌟 The files with `nornj` or `nj` extension are highlighted in a new way for pure text template.
+
 ## [v0.5.1] 2019.04.14
 
 * 🌟 The default tagged template tags add `html`.
