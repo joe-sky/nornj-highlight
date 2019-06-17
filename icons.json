@@ -883,7 +883,11 @@
     "stylelintrc": "_f_stylelint",
     "stylelintignore": "_f_stylelint",
     "mobx.js": "_f_mobx",
-    "mst.js": "_f_mobx-state-tree"
+    "mobx.ts": "_f_mobx",
+    "store.js": "_f_mobx",
+    "store.ts": "_f_mobx",
+    "mst.js": "_f_mobx-state-tree",
+    "mst.ts": "_f_mobx-state-tree"
   },
   "fileNames": {
     "androidmanifest.xml": "_f_android",
