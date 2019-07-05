@@ -2,7 +2,7 @@
   "name": "nornj",
   "displayName": "nornj-highlight",
   "description": "Syntax highlight and snippets for NornJ template engine in VS Code",
-  "version": "0.6.2",
+  "version": "0.6.3",
   "publisher": "joe-sky",
   "icon": "images/logo.png",
   "engines": {
@@ -71,6 +71,12 @@
         ]
       },
       {
+        "id": "text.css.inline.nj",
+        "aliases": [
+          "Inline CSS (NornJ)"
+        ]
+      },
+      {
         "id": "source.ts.nj",
         "aliases": [
           "TypeScript (NornJ)"
@@ -97,6 +103,11 @@
         "language": "text.css.nj",
         "scopeName": "text.css.nj",
         "path": "./syntaxes/nj.css.tmLanguage.json"
+      },
+      {
+        "language": "text.css.inline.nj",
+        "scopeName": "text.css.inline.nj",
+        "path": "./syntaxes/nj.css.inline.tmLanguage.json"
       },
       {
         "language": "source.ts.nj",

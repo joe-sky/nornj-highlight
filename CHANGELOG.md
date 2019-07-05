@@ -1,5 +1,17 @@
 # CHANGELOG
 
+## [v0.6.3] 2019.07.05
+
+* 🌟 The following syntax supported highlight:
+
+```js
+n-style="margin-left:100px"
+n-style={`margin-left:100px`}
+n-show={`foo.bar`}
+<If condition={`foo.bar`}>
+<Each of={`1 .. 10`}>
+```
+
 ## [v0.6.1] 2019.06.13
 
 * 🌟 The files with `nornj` or `nj` extension are highlighted in a new way for pure text template.

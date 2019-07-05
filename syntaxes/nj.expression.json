@@ -28,6 +28,138 @@
           "include": "source.ts.nj#expression"
         }
       ]
+    },
+    {
+      "name": "string.jsx.controlStatementTagAttribute",
+      "contentName": "meta.embedded.block.html",
+      "begin": "(?<=If|if|Each|each|Switch|switch|Case|case)\\s+(condition|of|value)\\s*(=)\\s*(\\{)\\s*(`)",
+      "beginCaptures": {
+        "1": {
+          "name": "entity.other.attribute-name.directive.js.jsx"
+        },
+        "2": {
+          "name": "keyword.operator.assignment.js.jsx"
+        },
+        "3": {
+          "name": "punctuation.section.embedded.begin.js.jsx"
+        },
+        "4": {
+          "name": "punctuation.definition.string.template.begin.js string.template.js"
+        }
+      },
+      "end": "(`)\\s*(\\})",
+      "endCaptures": {
+        "1": {
+          "name": "punctuation.definition.string.template.end.js string.template.js"
+        },
+        "2": {
+          "name": "punctuation.section.embedded.end.js.jsx"
+        }
+      },
+      "patterns": [
+        {
+          "include": "source.ts.nj#template-substitution-element"
+        },
+        {
+          "include": "source.ts.nj#expression"
+        }
+      ]
+    },
+    {
+      "name": "string.jsx.styleDirective",
+      "contentName": "source.css.scss",
+      "begin": "\\s+(n-style)\\s*(=)\\s*(\\{)\\s*(`)",
+      "beginCaptures": {
+        "1": {
+          "name": "entity.other.attribute-name.directive.js.jsx"
+        },
+        "2": {
+          "name": "keyword.operator.assignment.js.jsx"
+        },
+        "3": {
+          "name": "punctuation.section.embedded.begin.js.jsx"
+        },
+        "4": {
+          "name": "punctuation.definition.string.template.begin.js string.template.js"
+        }
+      },
+      "end": "(`)\\s*(\\})",
+      "endCaptures": {
+        "1": {
+          "name": "punctuation.definition.string.template.end.js string.template.js"
+        },
+        "2": {
+          "name": "punctuation.section.embedded.end.js.jsx"
+        }
+      },
+      "patterns": [
+        {
+          "include": "text.css.nj"
+        }
+      ]
+    },
+    {
+      "name": "string.jsx.styleDirective.quota",
+      "contentName": "source.css.scss",
+      "begin": "\\s+(n-style)\\s*(=)\\s*(\")",
+      "beginCaptures": {
+        "1": {
+          "name": "entity.other.attribute-name.directive.js.jsx"
+        },
+        "2": {
+          "name": "keyword.operator.assignment.js.jsx"
+        },
+        "3": {
+          "name": "punctuation.definition.string.begin.js.jsx"
+        }
+      },
+      "end": "(\")",
+      "endCaptures": {
+        "1": {
+          "name": "punctuation.definition.string.end.js.jsx"
+        }
+      },
+      "patterns": [
+        {
+          "include": "text.css.inline.nj"
+        }
+      ]
+    },
+    {
+      "name": "string.jsx.directive",
+      "contentName": "meta.embedded.block.html",
+      "begin": "\\s+(n-(show|debounce|bind|mobxBind|mstBind)[^\\s'\"=>]*)\\s*(=)\\s*(\\{)\\s*(`)",
+      "beginCaptures": {
+        "1": {
+          "name": "entity.other.attribute-name.directive.js.jsx"
+        },
+        "3": {
+          "name": "keyword.operator.assignment.js.jsx"
+        },
+        "4": {
+          "name": "punctuation.section.embedded.begin.js.jsx"
+        },
+        "5": {
+          "name": "punctuation.definition.string.template.begin.js string.template.js"
+        }
+      },
+      "end": "(`)\\s*(\\})",
+      "endCaptures": {
+        "1": {
+          "name": "punctuation.definition.string.template.end.js string.template.js"
+        },
+        "2": {
+          "name": "punctuation.section.embedded.end.js.jsx"
+        }
+      },
+      "patterns": [
+        {
+          "include": "source.ts.nj#template-substitution-element"
+        },
+        {
+          "include": "source.ts.nj#expression"
+        }
+      ]
     }
   ],
   "scopeName": "nj.expression"
