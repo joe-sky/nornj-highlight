@@ -42,7 +42,7 @@
   "#case": {
     "prefix": "<#case> ",
     "body": [
-      "<#case {{${1:value}}}>",
+      "<#case {%${1:value}%}>",
       "\t$2",
       "</#case>"
     ],

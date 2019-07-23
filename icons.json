@@ -920,6 +920,7 @@
     "package.json": "_f_npm",
     "package-lock.json": "_f_npm",
     "npm-debug.log": "_f_npm",
+    ".npmrc": "_f_npm",
     "paket.references": "_f_paket",
     "paket.dependencies": "_f_paket",
     "paket.lock": "_f_paket",
@@ -1012,7 +1013,10 @@
     "prettier.config.coffee": "_f_prettier",
     "tslint.js": "_f_tslint",
     "tslint.ts": "_f_tslint",
-    "tslint.json": "_f_tslint"
+    "tslint.json": "_f_tslint",
+    ".nornjrc": "_f_nornj",
+    ".nornjrc.js": "_f_nornj",
+    ".nornjrc.json": "_f_nornj"
   },
   "languageIds": {
     "git": "_f_git",

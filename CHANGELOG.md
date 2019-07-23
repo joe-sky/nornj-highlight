@@ -1,5 +1,9 @@
 # CHANGELOG
 
+## [v0.6.5] 2019.07.22
+
+* 🌟 Added new icons for `.nornjrc` and `.npmrc`:
+
 ## [v0.6.3] 2019.07.05
 
 * 🌟 The following syntax supported highlight:

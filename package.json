@@ -2,7 +2,7 @@
   "name": "nornj",
   "displayName": "nornj-highlight",
   "description": "Syntax highlight and snippets for NornJ template engine in VS Code",
-  "version": "0.6.4",
+  "version": "0.6.6",
   "publisher": "joe-sky",
   "icon": "images/logo.png",
   "engines": {
@@ -80,6 +80,12 @@
         "id": "source.ts.nj",
         "aliases": [
           "TypeScript (NornJ)"
+        ]
+      },
+      {
+        "id": "json",
+        "filenames": [
+          ".nornjrc"
         ]
       },
       {
@@ -216,7 +222,7 @@
         "nornj.taggedTemplate.format.enabled": {
           "type": "boolean",
           "description": "Enable/disable formatting of nornj template strings.",
-          "default": true
+          "default": false
         }
       }
     },
@@ -227,6 +233,14 @@
       }
     ],
     "jsonValidation": [
+      {
+        "fileMatch": ".nornjrc",
+        "url": "./schemas/nj.schema.json"
+      },
+      {
+        "fileMatch": ".nornjrc.json",
+        "url": "./schemas/nj.schema.json"
+      },
       {
         "fileMatch": "jsconfig*.json",
         "url": "./schemas/tsconfig.schema.json"
