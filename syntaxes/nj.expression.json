@@ -128,7 +128,7 @@
     {
       "name": "string.jsx.directive",
       "contentName": "meta.embedded.block.html",
-      "begin": "\\s+(n-(show|debounce|bind|mobxBind|mstBind)[^\\s'\"=>]*)\\s*(=)\\s*(\\{)\\s*(`)",
+      "begin": "\\s+(n-(show|debounce|bind|mobxBind|mstBind|stateBind|mobxField)[^\\s'\"=>]*)\\s*(=)\\s*(\\{)\\s*(`)",
       "beginCaptures": {
         "1": {
           "name": "entity.other.attribute-name.directive.js.jsx"
