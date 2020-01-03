@@ -1,5 +1,9 @@
 # CHANGELOG
 
+## [v0.6.8] 2020.01.03
+
+* 🌟 Added new icons for `nj.config` files.
+
 ## [v0.6.5] 2019.07.22
 
 * 🌟 Added new icons for `.nornjrc` and `.npmrc`:

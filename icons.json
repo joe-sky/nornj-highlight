@@ -1022,7 +1022,15 @@
     "tslint.json": "_f_tslint",
     ".nornjrc": "_f_nornj",
     ".nornjrc.js": "_f_nornj",
-    ".nornjrc.json": "_f_nornj"
+    ".nornjrc.json": "_f_nornj",
+    "nj.config.js": "_f_nornj",
+    "nj.config.jsx": "_f_nornj",
+    "nj.config.ts": "_f_nornj",
+    "nj.config.tsx": "_f_nornj",
+    "nornj.config.js": "_f_nornj",
+    "nornj.config.jsx": "_f_nornj",
+    "nornj.config.ts": "_f_nornj",
+    "nornj.config.tsx": "_f_nornj"
   },
   "languageIds": {
     "git": "_f_git",
